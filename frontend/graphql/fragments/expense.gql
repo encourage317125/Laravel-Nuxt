@@ -1,0 +1,33 @@
+#import './expenseType.gql'
+
+fragment ExpenseFragment on Expense {
+  id
+  unit {
+    id
+    code
+    name
+  }
+  comments
+  vendor {
+    id
+    code
+    name
+  }
+  period {
+    id
+    periodEnd
+    pivot {
+      isClosed
+    }
+  }
+  expenseDate
+  glAccount {
+    id
+    itemId
+    name
+  }
+  expenseType {
+    ...ExpenseTypeFragment
+  }
+  amount
+}

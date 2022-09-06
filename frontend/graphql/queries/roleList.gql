@@ -1,0 +1,20 @@
+query RoleList($page: Int!) {
+  roleList(page: $page) {
+    paginatorInfo {
+      count
+      perPage
+      total
+      
+      firstItem
+      lastItem
+      
+      currentPage
+      lastPage
+      hasMorePages
+    }
+    data {
+      id
+      name
+    }
+  }
+}

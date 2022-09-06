@@ -1,0 +1,4 @@
+fragment UnitTypeFragment on UnitType {
+  id
+  name
+}
