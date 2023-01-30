@@ -10,14 +10,14 @@
 
 #### 1. Pull project from git provider:
 
-#### 2. Create a database.
+#### 2. Create a database named `brock`.
 
 #### 3. Copy .env.example file to .env inside the project and fill the database information:
 ```bash
 DB_CONNECTION=mysql
 DB_HOST=mysql
 DB_PORT=3306
-DB_DATABASE={db_name}
+DB_DATABASE={brock}
 DB_USERNAME={db_username}
 DB_PASSWORD={db_password}
 ```
