@@ -1,1 +1,1 @@
-# Brock-Laravel-Nuxt
+# Laravel-Vue
