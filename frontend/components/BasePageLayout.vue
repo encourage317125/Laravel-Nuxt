@@ -34,7 +34,6 @@ export default {
   display: flex;
   width: 100%;
   max-width: $xxl;
-  // overflow: hidden;
 }
 
 .container {

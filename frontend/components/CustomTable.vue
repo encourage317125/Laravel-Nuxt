@@ -38,7 +38,6 @@ export default {
 
 
 .header {
-  // padding: 22px 20px 25px;
   padding: 6px 10px;
   background: $cultured;
   border-top-right-radius: inherit;
