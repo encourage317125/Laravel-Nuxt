@@ -15,76 +15,60 @@
                                     <!-- First name -->
                                     <div class="form-input">
                                         <InputWithTitle>
-                                        <template #title>First name</template>
-                                        <template #input>
-                                            <CustomInput
-                                            v-model="profileInput.firstName"
-                                            type="text"
-                                            rules="required"
-                                            />
-                                        </template>
+                                            <template #title>First name</template>
+                                            <template #input>
+                                                <CustomInput v-model="profileInput.firstName" type="text"
+                                                    rules="required" />
+                                            </template>
                                         </InputWithTitle>
                                     </div>
-        
+
                                     <!-- Last name -->
                                     <div class="form-input">
                                         <InputWithTitle>
-                                        <template #title>Last name</template>
-        
-                                        <template #input>
-                                            <CustomInput
-                                            v-model="profileInput.lastName"
-                                            type="text"
-                                            />
-                                        </template>
+                                            <template #title>Last name</template>
+
+                                            <template #input>
+                                                <CustomInput v-model="profileInput.lastName" type="text" />
+                                            </template>
                                         </InputWithTitle>
                                     </div>
-        
+
                                     <!-- Email -->
                                     <div class="form-input">
-                                    <InputWithTitle>
-                                    <template #title>Email</template>
-        
-                                    <template #input>
-                                        <CustomInput
-                                        v-model="profileInput.email"
-                                        vid="email"
-                                        type="email"
-                                        rules="email|required"
-                                        />
-                                    </template>
-                                    </InputWithTitle>
+                                        <InputWithTitle>
+                                            <template #title>Email</template>
+
+                                            <template #input>
+                                                <CustomInput v-model="profileInput.email" vid="email" type="email"
+                                                    rules="email|required" />
+                                            </template>
+                                        </InputWithTitle>
                                     </div>
                                 </div>
-    
+
                                 <div class="passwords">
                                     <!-- Password -->
                                     <div class="form-input">
                                         <InputWithTitle>
-                                        <template #title>Password</template>
-        
-                                        <template #input>
-                                            <CustomInput
-                                            v-model="profileInput.password"
-                                            type="password"
-                                            name="confirmPassword"
-                                            />
-                                        </template>
+                                            <template #title>Password</template>
+
+                                            <template #input>
+                                                <CustomInput v-model="profileInput.password" type="password"
+                                                    name="confirmPassword" />
+                                            </template>
                                         </InputWithTitle>
                                     </div>
-        
+
                                     <!-- Confirm : Password -->
                                     <div class="form-input">
                                         <InputWithTitle>
-                                        <template #title>Confirm Password</template>
-        
-                                        <template #input>
-                                            <CustomInput
-                                            v-model="profileInput.confirmPassword"
-                                            type="password"
-                                            rules="password:@confirmPassword"
-                                            />
-                                        </template>
+                                            <template #title>Confirm Password</template>
+
+                                            <template #input>
+                                                <CustomInput v-model="profileInput.confirmPassword" type="password"
+                                                    rules="password:@confirmPassword" />
+                                            </template>
                                         </InputWithTitle>
                                     </div>
                                 </div>
@@ -92,7 +76,8 @@
                         </ValidationObserver>
                     </div>
                     <div class='action-panel'>
-                        <DefaultButton button-color-gamma="red" padding="7px 12px" @event="saveProfile"> Save </DefaultButton>
+                        <DefaultButton button-color-gamma="red" padding="7px 12px" @event="saveProfile"> Save
+                        </DefaultButton>
                         <DefaultButton button-color-gamma="white" padding="7px 12px" @event="reset"> Reset </DefaultButton>
                     </div>
                 </div>
@@ -102,16 +87,17 @@
 </template>
 
 <script>
-import { ValidationObserver } from 'vee-validate'
-import { mapActions } from 'vuex'
-import { errorHandlerMixin } from '~/mixins/errorHandlerMixin'
-import { mutationMixin } from '~/mixins/mutationMixin'
-import UpdateProfile from '~/graphql/mutations/profile/updateProfile.mutation.gql'
-import Me from '~/graphql/queries/me.query.gql'
-import ProfileAvatar from '~/components/profile/ProfileAvatar.vue'
-import InputWithTitle from '~/components/InputWithTitle.vue'
-import CustomInput from '~/components/CustomInput.vue'
-import DefaultButton from '~/components/DefaultButton.vue'
+import { ValidationObserver } from 'vee-validate';
+import { mapActions } from 'vuex';
+import CustomInput from '~/components/CustomInput.vue';
+import DefaultButton from '~/components/DefaultButton.vue';
+import InputWithTitle from '~/components/InputWithTitle.vue';
+import ProfileAvatar from '~/components/profile/ProfileAvatar.vue';
+import UpdateProfile
+  from '~/graphql/mutations/profile/updateProfile.mutation.gql';
+import Me from '~/graphql/queries/me.query.gql';
+import { errorHandlerMixin } from '~/mixins/errorHandlerMixin';
+import { mutationMixin } from '~/mixins/mutationMixin';
 
 export default {
     name: 'LoginPage',
@@ -138,7 +124,7 @@ export default {
             },
         }
     },
-    beforeMount(){
+    beforeMount() {
         this.fetchData();
     },
     methods: {
@@ -167,7 +153,7 @@ export default {
             });
             return me.data.me;
         },
-        onAvatarChange({avatarInput, avatarResource}) {
+        onAvatarChange({ avatarInput, avatarResource }) {
             this.profileInput.avatar = avatarInput.files[0]
             this.profileInput.avatarResource = avatarResource
         },
@@ -192,7 +178,7 @@ export default {
                 true
             )
             this.setUpdated(this.profileInput.avatar);
-            if(res) {
+            if (res) {
                 this.fetchData();
             }
         },
@@ -250,22 +236,25 @@ export default {
 
                 .form-input {
                     height: 90px;
+
                     .container {
                         width: 240px;
                     }
                 }
             }
+
             .action-panel {
                 width: auto;
                 margin-top: 1rem;
                 padding-right: 40px;
             }
         }
+
         .avatar-panel {
             width: auto;
             margin-top: 1.5rem;
             margin-right: 8rem;
-            display: flex;        
+            display: flex;
         }
 
         @media screen and (max-width: $lg) {
@@ -281,10 +270,12 @@ export default {
                         }
                     }
                 }
+
                 .action-panel {
                     padding-right: 0px;
                 }
             }
+
             .avatar-panel {
                 align-items: center;
                 margin-top: 0px;
@@ -296,6 +287,7 @@ export default {
             .page-content {
                 flex-direction: column;
             }
+
             .avatar-panel {
                 flex-direction: column;
                 margin-top: 0px;
