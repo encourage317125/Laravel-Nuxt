@@ -6,13 +6,7 @@
           <template #title>Email</template>
 
           <template #input>
-            <CustomInput
-              v-model="email"
-              vid="email"
-              type="email"
-              name="Email"
-              rules="email|required"
-            />
+            <CustomInput v-model="email" vid="email" type="email" name="Email" rules="email|required" />
           </template>
         </InputWithTitle>
 
@@ -20,13 +14,7 @@
           <template #title>Password</template>
 
           <template #input>
-            <CustomInput
-              v-model="password"
-              type="password"
-              name="Password"
-              rules="required"
-              @event="login"
-            />
+            <CustomInput v-model="password" type="password" name="Password" rules="required" @event="login" />
           </template>
         </InputWithTitle>
       </ValidationObserver>
@@ -43,13 +31,13 @@
 </template>
 
 <script>
-import { ValidationObserver } from 'vee-validate'
-import { submitMessagesMixin } from '~/mixins/submitMessagesMixin'
-import { errorHandlerMixin } from '~/mixins/errorHandlerMixin'
-import Login from '~/graphql/mutations/login.mutation.gql'
-import InputWithTitle from '~/components/InputWithTitle.vue'
-import CustomInput from '~/components/CustomInput.vue'
-import DefaultButton from '~/components/DefaultButton.vue'
+import { ValidationObserver } from 'vee-validate';
+import CustomInput from '~/components/CustomInput.vue';
+import DefaultButton from '~/components/DefaultButton.vue';
+import InputWithTitle from '~/components/InputWithTitle.vue';
+import Login from '~/graphql/mutations/login.mutation.gql';
+import { errorHandlerMixin } from '~/mixins/errorHandlerMixin';
+import { submitMessagesMixin } from '~/mixins/submitMessagesMixin';
 
 export default {
   name: 'LoginPage',
@@ -101,6 +89,7 @@ export default {
 
 .login {
   width: 240px;
+
   div.container {
     margin-bottom: 16px;
   }
