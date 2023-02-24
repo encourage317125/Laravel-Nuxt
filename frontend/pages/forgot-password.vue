@@ -5,7 +5,7 @@
         <template #title>Email</template>
 
         <template #input>
-          <CustomInput v-model="email" type="email" rules="email|required" name="Email"/>
+          <CustomInput v-model="email" type="email" rules="email|required" name="Email" />
         </template>
       </InputWithTitle>
 
@@ -17,12 +17,13 @@
 </template>
 
 <script>
-import { ValidationObserver } from 'vee-validate'
-import ForgotPassword from '~/graphql/mutations/forgotPassword.mutation.gql'
-import { submitMessagesMixin } from '~/mixins/submitMessagesMixin'
-import { errorHandlerMixin } from '~/mixins/errorHandlerMixin'
-import { resultHandlerMixin } from '~/mixins/resultHandlerMixin'
-import CustomInput from '~/components/CustomInput.vue'
+import { ValidationObserver } from 'vee-validate';
+import CustomInput from '~/components/CustomInput.vue';
+import ForgotPassword from '~/graphql/mutations/forgotPassword.mutation.gql';
+import { errorHandlerMixin } from '~/mixins/errorHandlerMixin';
+import { resultHandlerMixin } from '~/mixins/resultHandlerMixin';
+import { submitMessagesMixin } from '~/mixins/submitMessagesMixin';
+
 export default {
   name: 'PasswordForgot',
   components: { CustomInput, ValidationObserver },
